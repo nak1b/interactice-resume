@@ -10,7 +10,7 @@ var bio = {
 	},
 	"welcomeMessage" : "Welcome to My Online Resume",
 	"skills" : ["Web Programming ", "Software Development ", "Problem Solving ", "Learning ", "Time Management "],
-	"picture" : "images/fry.jpg"
+	"picture" : "images/profile.jpg"
 }
 
 
@@ -26,7 +26,7 @@ var projects = {
 	"projects": [	{"title" : "Personal Website",
 		"dates" : "August 2014",
 		"description" : "Designed and Develope website to showcase my personal as well as academic achievements using latest web technologies like HTML, CSS, Javascript, jQuery, PHP and twitter bootstrap as base.",
-		"images" : ["images/197x148.gif", "images/197x148.gif"] },
+		"images" : ["images/pro1Thumb1.png", "images/pro1Thumb3.png", "images/pro1Thumb2.png"] },
 
 		{"title" : "Personal Website",
 		"dates" : "2014",
@@ -69,7 +69,7 @@ var formatedPic = HTMLbioPic.replace("%data%", bio.picture);
 
 
 //appending data to header
-$("#header").prepend(formatedMsg);
+//$("#header").prepend(formatedMsg);
 $("#header").prepend(formatedPic);
 
 $("#topContacts").prepend(formatedLocation);
@@ -119,10 +119,10 @@ projects.display = function()
 
 		for(i=0; i<projects.projects[project].images.length; i++)
 		{
-			var formattedProjectImg = HTMLprojectImage.replace("%data%", projects.projects[project].images[i]);
+				var formattedProjectImg = HTMLprojectImage.replace("%data%", projects.projects[project].images[i]);
 			$(".project-entry:last").append(formattedProjectImg);
 		}
-		//var HTMLprojectImage = '<img src="%data%">';
+
 	}
 }
 
@@ -183,6 +183,11 @@ function displayEdu()
 
 displayEdu();
 
-
+//adding footer section contact information
+$("#footerContacts").prepend(formatedLocation);
+$("#footerContacts").prepend(formatedTwitter);
+$("#footerContacts").prepend(formatedGithub);
+$("#footerContacts").prepend(formatedEmail);
+$("#footerContacts").prepend(formatedMobile);
 
 
