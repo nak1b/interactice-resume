@@ -28,6 +28,7 @@ h2 {
   padding: 10px;
 }
 
+
 h3 {
   font-style: italic;
   font-size: 20px;
@@ -206,6 +207,8 @@ span {
   width: 100%;
   padding-bottom: 5%;
 }
+
+#education h3{padding-left: 0px;}
 
 @media only screen and (min-width: 750px) {
   #skillsH3,

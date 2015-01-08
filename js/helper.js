@@ -49,6 +49,7 @@ var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
 
 
+var clear = '<div style="clear: both;"></div>';
 
 $(document).ready(function() {
   $('button').click(function() {

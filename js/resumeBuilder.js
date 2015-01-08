@@ -41,7 +41,8 @@ var education = {
 		"name": "Seneca College",
 		"degree" : "Computer Programming",
 		"dates" : "2013-2015",
-		"city" : "Toronto"
+		"city" : "Toronto",
+		"major" : "CS"
 	},
 	"OnlineCourses" : [
 		{
@@ -154,17 +155,28 @@ function displayEdu()
 	var formatedSchoolDates = HTMLschoolDates.replace("%data%", education.school.dates);
 	$(".education-entry").append(formatedSchoolDates);
 
+	$(".education-entry").append(clear);
+
 	for(course in education.OnlineCourses)
 	{
 
 		$("#education").append(HTMLschoolStart);
 		$(".education-entry:last").append(HTMLonlineClasses);
-		var formatedOnlineTitle = 
-		$("")
-		var HTMLonlineTitle = '<a href="#">%data%';
-		var HTMLonlineSchool = ' - %data%</a>';
-		var HTMLonlineDates = '<div class="date-text">%data%</div>';
-		var HTMLonlineURL = '<br><a href="#">%data%</a>';
+		var onlineTitle = HTMLonlineTitle.replace("%data%", education.OnlineCourses[course].title);
+		var onlineSchool = HTMLonlineSchool.replace("%data%", education.OnlineCourses[course].school);
+		var formatedOnlineTitle = onlineTitle + onlineSchool;
+		$(".education-entry:last").append(formatedOnlineTitle);
+		
+		var formatedOnlineDates = HTMLonlineDates.replace("%data%", education.OnlineCourses[course].dates);
+		$(".education-entry:last").append(formatedOnlineDates);
+	
+
+		var formatedOnlineUrl = HTMLonlineURL.replace("%data%", education.OnlineCourses[course].url);
+		$(".education-entry:last").append(formatedOnlineUrl);
+		
+		// var HTMLonlineSchool = ' - %data%</a>';
+		// var HTMLonlineDates = '<div class="date-text">%data%</div>';
+		// var HTMLonlineURL = '<br><a href="#">%data%</a>';
 	}
 
 }
