@@ -21,14 +21,8 @@ var work = {
 		"dates" : "May 2014 - Dec 2014 ",
 		"location" : "Online",
 		"description" : "Designing and developing website for clients"
-	},
-	{
-		"position" : "Freelace Developer",
-		"employeer" : "Freelace.com",
-		"dates" : "May 2014 - Dec 2014 ",
-		"location" : "Online",
-		"description" : "Designing and developing website for clients"
-	}]
+	}
+	]
 }
 
 var projects = {
@@ -37,10 +31,10 @@ var projects = {
 		"description" : "Designed and Develope website to showcase my personal as well as academic achievements using latest web technologies like HTML, CSS, Javascript, jQuery, PHP and twitter bootstrap as base.",
 		"images" : ["images/pro1Thumb1.png", "images/pro1Thumb3.png", "images/pro1Thumb2.png"] },
 
-		{"title" : "Personal Website",
-		"dates" : "2014",
-		"description" : "Designed and Develope website to showcase my personal as well as academic achievements using latest web technologies like HTML, CSS, Javascript, jQuery, PHP and twitter bootstrap as base.",
-		"images" : ["images/197x148.gif", "images/197x148.gif"] },
+		{"title" : "Interactive Online Resume",
+		"dates" : "Jan 2014",
+		"description" : "Developed an interactice resume for an online Javascript course on Udacity that reads the data from JSON file and display it on the template page. Also used google map API to display location map of places work, lived or studied.",
+		"images" : ["images/pro2Thumb1.png", "images/pro2Thumb2.png"] },
 	]
 	
 }
@@ -49,7 +43,7 @@ var education = {
 	"school" : {
 		"name": "Seneca College",
 		"degree" : "Computer Programming",
-		"dates" : "2013-2015",
+		"dates" : "2013 - 2015",
 		"city" : "Toronto",
 		"major" : "CS"
 	},
