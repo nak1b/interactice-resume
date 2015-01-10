@@ -15,11 +15,20 @@ var bio = {
 
 
 var work = {
-	"position" : "Freelace Developer",
-	"employeer" : "Freelace.com",
-	"dates" : "May 2014 - Dec 2014 ",
-	"location" : "Online",
-	"description" : "Designing and developing website for clients"
+	"works":[{
+		"position" : "Freelace Developer",
+		"employeer" : "Freelace.com",
+		"dates" : "May 2014 - Dec 2014 ",
+		"location" : "Online",
+		"description" : "Designing and developing website for clients"
+	},
+	{
+		"position" : "Freelace Developer",
+		"employeer" : "Freelace.com",
+		"dates" : "May 2014 - Dec 2014 ",
+		"location" : "Online",
+		"description" : "Designing and developing website for clients"
+	}]
 }
 
 var projects = {
@@ -82,24 +91,26 @@ $("#header").prepend(formatedRole);
 $("#header").prepend(formatedName);
 
 
-function displayWork()
+work.display = function()
 {
-	//formating value for work section
-	var formatedWorkTitle = HTMLworkEmployer.replace("%data%", work.employeer) + HTMLworkTitle.replace("%data%", work.position);
-	var formatedWorkLocation = HTMLworkLocation.replace("%data%", work.location);
-	var formatedWordDesc = HTMLworkDescription.replace("%data%", work.description);
-	var formatedWordDate = HTMLworkDates.replace("%data%", work.dates);
+	for(w in work.works)
+	{
+		$("#workExperience").append(HTMLworkStart);
+		var formatedWorkTitle = HTMLworkEmployer.replace("%data%", work.works[w].employeer) + HTMLworkTitle.replace("%data%", work.works[w].position);
+		$(".work-entry:last").append(formatedWorkTitle);
 
+		var formatedWorkLocation = HTMLworkLocation.replace("%data%", work.works[w].location);
+		$(".work-entry:last").append(formatedWorkLocation);
 
-	//appending work data
-	$("#workExperience").append(HTMLworkStart);
-	$(".work-entry").append(formatedWorkTitle);
-	$(".work-entry").append(formatedWordDate);
-	$(".work-entry").append(formatedWordDesc);
+		var formatedWordDate = HTMLworkDates.replace("%data%", work.works[w].dates);
+		$(".work-entry:last").append(formatedWordDate);
+
+		var formatedWordDesc = HTMLworkDescription.replace("%data%", work.works[w].description);
+		$(".work-entry:last").append(formatedWordDesc);
+	}
 }
 
 
-displayWork();
 
 projects.display = function()
 {
@@ -126,7 +137,7 @@ projects.display = function()
 	}
 }
 
-projects.display();
+
 
 if(bio.skills.length > 0)
 {
@@ -141,7 +152,7 @@ if(bio.skills.length > 0)
 
 $("#mapDiv").append(googleMap);
 
-function displayEdu()
+education.display = function()
 {
 	$("#education").append(HTMLschoolStart);
 	//formatting value for education
@@ -162,6 +173,7 @@ function displayEdu()
 
 		$("#education").append(HTMLschoolStart);
 		$(".education-entry:last").append(HTMLonlineClasses);
+		
 		var onlineTitle = HTMLonlineTitle.replace("%data%", education.OnlineCourses[course].title);
 		var onlineSchool = HTMLonlineSchool.replace("%data%", education.OnlineCourses[course].school);
 		var formatedOnlineTitle = onlineTitle + onlineSchool;
@@ -173,15 +185,14 @@ function displayEdu()
 
 		var formatedOnlineUrl = HTMLonlineURL.replace("%data%", education.OnlineCourses[course].url);
 		$(".education-entry:last").append(formatedOnlineUrl);
-		
-		// var HTMLonlineSchool = ' - %data%</a>';
-		// var HTMLonlineDates = '<div class="date-text">%data%</div>';
-		// var HTMLonlineURL = '<br><a href="#">%data%</a>';
+
 	}
 
 }
 
-displayEdu();
+work.display();
+projects.display();
+education.display();
 
 //adding footer section contact information
 $("#footerContacts").prepend(formatedLocation);
