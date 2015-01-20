@@ -124,7 +124,7 @@ projects.display = function()
 
 		for(i=0; i<projects.projects[project].images.length; i++)
 		{
-				var formattedProjectImg = HTMLprojectImage.replace("%data%", projects.projects[project].images[i]);
+			var formattedProjectImg = HTMLprojectImage.replace("%data%", projects.projects[project].images[i]);
 			$(".project-entry:last").append(formattedProjectImg);
 		}
 
@@ -132,7 +132,7 @@ projects.display = function()
 }
 
 
-
+//Adding Skills to Header if more then 0 
 if(bio.skills.length > 0)
 {
 	$("#header").append(HTMLskillsStart);
@@ -147,18 +147,21 @@ if(bio.skills.length > 0)
 $("#mapDiv").append(googleMap);
 
 education.display = function()
-{
+{	
+	//Adding Education Container
 	$("#education").append(HTMLschoolStart);
-	//formatting value for education
 	
+	//Displaying all the schools went to
 	for(edu in education.school)
 	{
 		var schoolName = HTMLschoolName.replace("%data%", education.school[edu].name);
 		var schoolDegree = HTMLschoolDegree.replace("%data%", education.school[edu].degree);
 		var formatedSchoolName = schoolName + schoolDegree;
 		$(".education-entry").append(formatedSchoolName);
+
 		var formatedSchoolLocation = HTMLschoolLocation.replace("%data%", education.school[edu].location);
 		$(".education-entry").append(formatedSchoolLocation);
+
 		var formatedSchoolDates = HTMLschoolDates.replace("%data%", education.school[edu].dates);
 		$(".education-entry").append(formatedSchoolDates);
 
@@ -166,6 +169,7 @@ education.display = function()
 	}
 	
 
+	//Displaying any online courses you taken
 	for(course in education.OnlineCourses)
 	{
 
@@ -188,9 +192,11 @@ education.display = function()
 
 }
 
+//Call Function to display work, projects and education
 work.display();
 projects.display();
 education.display();
+
 
 //adding footer section contact information
 $("#footerContacts").prepend(formatedLocation);
