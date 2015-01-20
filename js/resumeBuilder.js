@@ -9,7 +9,7 @@ var bio = {
 		"location" : "Toronto"
 	},
 	"welcomeMessage" : "Welcome to My Online Resume",
-	"skills" : ["Web Programming ", "Software Development ", "Problem Solving ", "Learning ", "Time Management "],
+	"skills" : ["Web Programming ", "Software Development ", "Problem Solving ", "Database Design ", "Time Management "],
 	"picture" : "images/profile.jpg"
 }
 
@@ -40,13 +40,13 @@ var projects = {
 }
 
 var education = {
-	"school" : {
+	"school" : [{
 		"name": "Seneca College",
 		"degree" : "Computer Programming",
 		"dates" : "2013 - 2015",
-		"city" : "Toronto",
+		"location" : "Toronto",
 		"major" : "CS"
-	},
+	}, ],
 	"OnlineCourses" : [
 		{
 			"title":"Front-End Developer Nano Degree",
@@ -151,16 +151,20 @@ education.display = function()
 	$("#education").append(HTMLschoolStart);
 	//formatting value for education
 	
-	var schoolName = HTMLschoolName.replace("%data%", education.school.name);
-	var schoolDegree = HTMLschoolDegree.replace("%data%", education.school.degree);
-	var formatedSchoolName = schoolName + schoolDegree;
-	$(".education-entry").append(formatedSchoolName);
-	var formatedSchoolLocation = HTMLschoolLocation.replace("%data%", education.school.city);
-	$(".education-entry").append(formatedSchoolLocation);
-	var formatedSchoolDates = HTMLschoolDates.replace("%data%", education.school.dates);
-	$(".education-entry").append(formatedSchoolDates);
+	for(edu in education.school)
+	{
+		var schoolName = HTMLschoolName.replace("%data%", education.school[edu].name);
+		var schoolDegree = HTMLschoolDegree.replace("%data%", education.school[edu].degree);
+		var formatedSchoolName = schoolName + schoolDegree;
+		$(".education-entry").append(formatedSchoolName);
+		var formatedSchoolLocation = HTMLschoolLocation.replace("%data%", education.school[edu].location);
+		$(".education-entry").append(formatedSchoolLocation);
+		var formatedSchoolDates = HTMLschoolDates.replace("%data%", education.school[edu].dates);
+		$(".education-entry").append(formatedSchoolDates);
 
-	$(".education-entry").append(clear);
+		$(".education-entry").append(clear);
+	}
+	
 
 	for(course in education.OnlineCourses)
 	{
